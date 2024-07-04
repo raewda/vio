@@ -26,11 +26,13 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.violet.R
 
 
 @Composable
-fun Home()
+fun Home(navController: NavHostController)
 {
     Card(
         shape = RoundedCornerShape(
@@ -68,7 +70,7 @@ fun Home()
                 ) {
                     Icon(Icons.Filled.KeyboardArrowLeft, "tuda")
                 }
-                SmallFloatingActionButton(onClick = {},
+                SmallFloatingActionButton(onClick = {navController.navigate("rball")},
                     modifier = Modifier
                         .padding(top = 10.dp),
                     shape = RoundedCornerShape(
@@ -79,13 +81,13 @@ fun Home()
                     ),
                     colorResource(id = R.color.violet)
                 ) {
-                    Icon(Icons.Filled.KeyboardArrowRight, "tuda")
+                    Icon(Icons.Filled.KeyboardArrowRight, "RBall")
                 }
             }
             Row(
                 horizontalArrangement = Arrangement.Center
             ) {
-                SmallFloatingActionButton(onClick = {},
+                SmallFloatingActionButton(onClick = {navController.navigate("rcoin")},
                     modifier = Modifier
                         .padding(top = 10.dp),
                     shape = RoundedCornerShape(
@@ -96,9 +98,9 @@ fun Home()
                     ),
                     colorResource(id = R.color.violet)
                 ) {
-                    Icon(Icons.Filled.ArrowBack, "tuda")
+                    Icon(Icons.Filled.ArrowBack, "Rcoin")
                 }
-                SmallFloatingActionButton(onClick = {},
+                SmallFloatingActionButton(onClick = {navController.navigate("rwheelfortune")},
                     modifier = Modifier
                         .padding(top = 10.dp),
                     shape = RoundedCornerShape(
@@ -109,7 +111,7 @@ fun Home()
                     ),
                     colorResource(id = R.color.violet)
                 ) {
-                    Icon(Icons.Filled.ArrowForward, "tuda")
+                    Icon(Icons.Filled.ArrowForward, "RWhellFortune")
                 }
             }
         }
