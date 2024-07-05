@@ -1,17 +1,21 @@
 package screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,72 +28,48 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.violet.R
+import com.example.violet.ui.theme.Uncial_Antiqua
 
 
 @Composable
-fun Home(navController: NavHostController)
-{
-    Card(
-        shape = RoundedCornerShape(
-            topStart = 0.dp,
-            topEnd = 0.dp,
-            bottomEnd = 0.dp,
-            bottomStart = 0.dp,
-        ),
+fun Home(navController: NavHostController) {
+    Column(
         modifier = Modifier
+            .background(color = Color.Black)
+            .padding(10.dp)
             .fillMaxSize(),
-        colors = CardDefaults.cardColors(containerColor = Color.Black),
-    )
-    {
-        Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceAround
+    ) {
+        Text(
+            text = stringResource(id = R.string.text_home)
+                .uppercase(),
             modifier = Modifier
-                .padding(top = 150.dp)
                 .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
+            textAlign = TextAlign.Center,
+            color = Color.White,
+            fontFamily = Uncial_Antiqua,
+            fontSize = 50.sp
+        )
 
-            Row(
-                horizontalArrangement = Arrangement.Center
+        Row(
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(top = 60.dp, bottom = 10.dp)
+                    .padding(horizontal = 20.dp)
             ) {
-                SmallFloatingActionButton(onClick = {},
+                SmallFloatingActionButton(
+                    onClick = { navController.navigate("rcoin") },
                     modifier = Modifier
-                        .padding(top = 10.dp),
-                    shape = RoundedCornerShape(
-                        topStart = 10.dp,
-                        topEnd = 10.dp,
-                        bottomEnd = 10.dp,
-                        bottomStart = 10.dp,
-                    ),
-                    colorResource(id = R.color.violet)
-                ) {
-                    Icon(Icons.Filled.KeyboardArrowLeft, "tuda")
-                }
-                SmallFloatingActionButton(onClick = {navController.navigate("rball")},
-                    modifier = Modifier
-                        .padding(top = 10.dp),
-                    shape = RoundedCornerShape(
-                        topStart = 10.dp,
-                        topEnd = 10.dp,
-                        bottomEnd = 10.dp,
-                        bottomStart = 10.dp,
-                    ),
-                    colorResource(id = R.color.violet)
-                ) {
-                    Icon(Icons.Filled.KeyboardArrowRight, "RBall")
-                }
-            }
-            Row(
-                horizontalArrangement = Arrangement.Center
-            ) {
-                SmallFloatingActionButton(onClick = {navController.navigate("rcoin")},
-                    modifier = Modifier
-                        .padding(top = 10.dp),
+                        .size(120.dp),
                     shape = RoundedCornerShape(
                         topStart = 10.dp,
                         topEnd = 10.dp,
@@ -100,9 +80,96 @@ fun Home(navController: NavHostController)
                 ) {
                     Icon(Icons.Filled.ArrowBack, "Rcoin")
                 }
-                SmallFloatingActionButton(onClick = {navController.navigate("rwheelfortune")},
+                Text(
+                    text = stringResource(id = R.string.coin_home)
+                    .uppercase(),
                     modifier = Modifier
-                        .padding(top = 10.dp),
+                        .padding(top = 15.dp)
+                        .size(120.dp),
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 20.sp,
+                    fontFamily = Uncial_Antiqua
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .padding(top = 60.dp, bottom = 10.dp)
+                    .padding(horizontal = 20.dp)
+            ) {
+                SmallFloatingActionButton(
+                    onClick = { navController.navigate("rball") },
+                    modifier = Modifier
+                        .size(120.dp),
+                    shape = RoundedCornerShape(
+                        topStart = 10.dp,
+                        topEnd = 10.dp,
+                        bottomEnd = 10.dp,
+                        bottomStart = 10.dp,
+                    ),
+                    colorResource(id = R.color.violet)
+                ) {
+                    Icon(Icons.Filled.KeyboardArrowRight, "RBall")
+                }
+                Text(
+                    text = stringResource(id = R.string.ball_home)
+                        .uppercase(),
+                    modifier = Modifier
+                        .padding(top = 15.dp)
+                        .size(120.dp),
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 20.sp,
+                    fontFamily = Uncial_Antiqua
+                )
+            }
+        }
+        Row(
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Column(
+                    modifier = Modifier
+                        .padding(bottom = 20.dp)
+                        .padding(horizontal = 20.dp)
+                    ) {
+                SmallFloatingActionButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(120.dp),
+                    shape = RoundedCornerShape(
+                        topStart = 10.dp,
+                        topEnd = 10.dp,
+                        bottomEnd = 10.dp,
+                        bottomStart = 10.dp,
+                    ),
+                    colorResource(id = R.color.violet)
+                ) {
+                    Icon(Icons.Filled.KeyboardArrowLeft, "tuda")
+                }
+                Text(
+                    text = stringResource(id = R.string.wheelfortune_home)
+                        .uppercase(),
+                    modifier = Modifier
+                        .padding(top = 15.dp)
+                        .size(120.dp),
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 20.sp,
+                    fontFamily = Uncial_Antiqua,
+                    softWrap = true
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .padding(bottom = 20.dp)
+                    .padding(horizontal = 20.dp)
+            ) {
+                SmallFloatingActionButton(
+                    onClick = { navController.navigate("rwheelfortune") },
+                    modifier = Modifier
+                        .size(120.dp),
                     shape = RoundedCornerShape(
                         topStart = 10.dp,
                         topEnd = 10.dp,
@@ -113,7 +180,37 @@ fun Home(navController: NavHostController)
                 ) {
                     Icon(Icons.Filled.ArrowForward, "RWhellFortune")
                 }
+                Text(
+                    text = stringResource(id = R.string.wheelfortune_home)
+                        .uppercase(),
+                    modifier = Modifier
+                        .padding(top = 15.dp)
+                        .size(120.dp),
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 20.sp,
+                    fontFamily = Uncial_Antiqua,
+                    softWrap = true
+                )
             }
+        }
+        Button(
+            onClick = { navController.navigate("knopkastart") },
+            modifier = Modifier
+                .size(200.dp, 80.dp),
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet))
+
+        ) {
+            Text(
+                text = stringResource(id = R.string.button_back_ma)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = Color.White,
+                fontFamily = Uncial_Antiqua,
+                fontSize = 40.sp
+            )
         }
     }
 }
