@@ -57,13 +57,13 @@ class MainActivity : ComponentActivity(
                     Home(navController)
                 }
                 composable("rball"){
-                    RBall()
+                    RBall(navController)
                 }
                 composable("rcoin"){
-                    RCoin()
+                    RCoin(navController)
                 }
                 composable("rwheelfortune"){
-                    RWheelFortune()
+                    RWheelFortune(navController)
                 }
             }
         }

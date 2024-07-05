@@ -1,57 +1,95 @@
 package screens
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.violet.R
+import com.example.violet.ui.theme.Uncial_Antiqua
 import `fun`.randomBall
 
 @Composable
-fun RBall()
+fun RBall(navController: NavHostController)
 {
-    Card(
-        shape = RoundedCornerShape(
-            topStart = 0.dp,
-            topEnd = 0.dp,
-            bottomEnd = 0.dp,
-            bottomStart = 0.dp,
-        ),
+    Column(
         modifier = Modifier
+            .background(color = Color.Black)
+            .padding(10.dp)
             .fillMaxSize(),
-        colors = CardDefaults.cardColors(containerColor = Color.Black),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceAround
+    ) {
+        Button(
+            onClick = { navController.navigate("home") },
+            modifier = Modifier
+                .size(100.dp, 40.dp)
+                .align(Alignment.Start),
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet))
 
         ) {
-        Text(text = stringResource(id = R.string.randomBalltitle),
+            Text(
+                text = stringResource(id = R.string.button_back_ma)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = Color.White,
+                fontFamily = Uncial_Antiqua,
+                fontSize = 15.sp
+            )
+        }
+        Column {
+            Text(
+                text = stringResource(id = R.string.randomBalltitle)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = colorResource(id = R.color.violet),
+                fontFamily = Uncial_Antiqua,
+                fontSize = 50.sp
+            )
+            Text(
+                text = stringResource(id = R.string.randomBalltext)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = Color.White,
+                fontFamily = Uncial_Antiqua,
+                fontSize = 30.sp
+            )
+        }
+
+
+        Text(text = stringResource(id = randomBall().resball)
+            .uppercase(),
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 30.dp, start = 20.dp, end = 20.dp),
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
             color = Color.White,
-            fontSize = 40.sp
+            fontFamily = Uncial_Antiqua,
+            fontSize = 30.sp
         )
-        Text(text = stringResource(id = R.string.randomBalltext),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 10.dp, start = 15.dp, end = 15.dp),
-            color = Color.White,
-            fontSize = 26.sp
-        )
-        Text(text = stringResource(id = randomBall().resball),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 280.dp, start = 15.dp, end = 15.dp),
-            color = Color.White,
-            fontSize = 26.sp,
-            textAlign = TextAlign.Center)
     }
+
 }
