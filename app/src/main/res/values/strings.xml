@@ -27,24 +27,33 @@
     <string name="text_home">your random</string>
 
 
-    <!-- для рандом шара -->
-    <string name="randomBalltitle">Magic Ball</string>
-    <string name="randomBalltext">The magic ball will answer your question)</string>
 
     <!-- значения функций -->
     <string name="da">yes</string>
     <string name="net">no</string>
     <string name="vozmojno">maybe</string>
     <string name="skoreevsegonet">most likely no</string>
-    <string name="skoreevsegoda">most likely da</string>
+    <string name="skoreevsegoda">most likely yes</string>
+
+
 
     <!-- для монетки -->
     <string name="randomCointitle">Magic Coin</string>
     <string name="randomCointext">The magic coin will answer the question)</string>
     <string name="toss_coin">toss a coin</string>
 
+
+
+    <!-- для рандом шара -->
+    <string name="randomBalltitle">Magic Ball</string>
+    <string name="randomBalltext">The magic ball will answer your question)</string>
+    <string name="show_me">show me</string>
+
+
+
     <!-- для колеса фортуны -->
     <string name="randomWheelFortunetitle">Wheel of Fortune</string>
     <string name="randomWheelFortunetext">The magic wheel of fortune will answer the question)</string>
+    <string name="spin">spin</string>
 
 </resources>

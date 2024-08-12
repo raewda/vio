@@ -1,5 +1,6 @@
 package screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -27,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -54,8 +57,9 @@ fun Home(navController: NavHostController) {
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
             color = Color.White,
+            fontSize = 50.sp,
             fontFamily = Uncial_Antiqua,
-            fontSize = 50.sp
+            lineHeight = 55.sp
         )
 
         Row(
@@ -76,9 +80,11 @@ fun Home(navController: NavHostController) {
                         bottomEnd = 10.dp,
                         bottomStart = 10.dp,
                     ),
-                    colorResource(id = R.color.violet)
+                    containerColor = Color.Transparent
+//                    colorResource(id = R.color.violet)
                 ) {
-                    Icon(Icons.Filled.ArrowBack, "Rcoin")
+//                    Icon(Icons.Filled.ArrowBack, "Rcoin")
+                    Image(painter = painterResource(id = R.drawable.coin_start), contentDescription = "Rcoin")
                 }
                 Text(
                     text = stringResource(id = R.string.coin_home)
@@ -108,9 +114,9 @@ fun Home(navController: NavHostController) {
                         bottomEnd = 10.dp,
                         bottomStart = 10.dp,
                     ),
-                    colorResource(id = R.color.violet)
+                    containerColor = Color.Transparent
                 ) {
-                    Icon(Icons.Filled.KeyboardArrowRight, "RBall")
+                    Image(painter = painterResource(id = R.drawable.magic_ball), contentDescription = "Rball")
                 }
                 Text(
                     text = stringResource(id = R.string.ball_home)
@@ -143,9 +149,9 @@ fun Home(navController: NavHostController) {
                         bottomEnd = 10.dp,
                         bottomStart = 10.dp,
                     ),
-                    colorResource(id = R.color.violet)
+                    containerColor = Color.Transparent
                 ) {
-                    Icon(Icons.Filled.KeyboardArrowLeft, "tuda")
+                    Image(painter = painterResource(id = R.drawable.fortune), contentDescription = "Fortune")
                 }
                 Text(
                     text = stringResource(id = R.string.wheelfortune_home)
@@ -176,9 +182,9 @@ fun Home(navController: NavHostController) {
                         bottomEnd = 10.dp,
                         bottomStart = 10.dp,
                     ),
-                    colorResource(id = R.color.violet)
+                    containerColor = Color.Transparent
                 ) {
-                    Icon(Icons.Filled.ArrowForward, "RWhellFortune")
+                    Image(painter = painterResource(id = R.drawable.fortune), contentDescription = "Fortune")
                 }
                 Text(
                     text = stringResource(id = R.string.wheelfortune_home)

@@ -34,6 +34,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.violet.ui.theme.Uncial_Antiqua
+import com.example.violet.ui.theme.VioletTheme
 import screens.Home
 import screens.RBall
 import screens.RCoin
@@ -45,25 +46,27 @@ class MainActivity : ComponentActivity(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
-            NavHost(
-                navController = navController,
-                startDestination = "knopkastart"
+            VioletTheme {
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = "knopkastart"
                 ){
-                composable("knopkastart"){
-                    Action(navController)
-                }
-                composable("home"){
-                    Home(navController)
-                }
-                composable("rball"){
-                    RBall(navController)
-                }
-                composable("rcoin"){
-                    RCoin(navController)
-                }
-                composable("rwheelfortune"){
-                    RWheelFortune(navController)
+                    composable("knopkastart"){
+                        Action(navController)
+                    }
+                    composable("home"){
+                        Home(navController)
+                    }
+                    composable("rball"){
+                        RBall(navController)
+                    }
+                    composable("rcoin"){
+                        RCoin(navController)
+                    }
+                    composable("rwheelfortune"){
+                        RWheelFortune(navController)
+                    }
                 }
             }
         }
@@ -107,7 +110,8 @@ fun Action(navController: NavHostController){
             color = Color.White,
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
-            fontFamily = Uncial_Antiqua
+            fontFamily = Uncial_Antiqua,
+            lineHeight = 35.sp
         )
         Button(onClick = { navController.navigate("home")},
             modifier = Modifier

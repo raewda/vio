@@ -69,7 +69,8 @@ fun RCoin(navController: NavController)
                 textAlign = TextAlign.Center,
                 color = colorResource(id = R.color.violet),
                 fontFamily = Uncial_Antiqua,
-                fontSize = 50.sp
+                fontSize = 50.sp,
+                lineHeight = 55.sp
             )
             Text(
                 text = stringResource(id = R.string.randomCointext)
@@ -79,10 +80,10 @@ fun RCoin(navController: NavController)
                 textAlign = TextAlign.Center,
                 color = Color.White,
                 fontFamily = Uncial_Antiqua,
-                fontSize = 30.sp
+                fontSize = 30.sp,
+                lineHeight = 35.sp
             )
         }
-
 
         Text(text = stringResource(id = randomCoin().rescoin)
                 .uppercase(),
@@ -93,5 +94,25 @@ fun RCoin(navController: NavController)
             fontFamily = Uncial_Antiqua,
             fontSize = 30.sp
         )
+
+        Button(
+            onClick = {  },
+            modifier = Modifier
+                .size(150.dp, 60.dp)
+                .align(Alignment.CenterHorizontally),
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet))
+
+        ) {
+            Text(
+                text = stringResource(id = R.string.toss_coin)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = Color.White,
+                fontFamily = Uncial_Antiqua,
+                fontSize = 20.sp
+            )
+        }
     }
 }
