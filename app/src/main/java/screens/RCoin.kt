@@ -85,15 +85,15 @@ fun RCoin(navController: NavController)
             )
         }
 
-        Text(text = stringResource(id = randomCoin().rescoin)
-                .uppercase(),
-            modifier = Modifier
-                .fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            color = Color.White,
-            fontFamily = Uncial_Antiqua,
-            fontSize = 30.sp
-        )
+//        Text(text = stringResource(id = randomCoin().rescoin)
+//                .uppercase(),
+//            modifier = Modifier
+//                .fillMaxWidth(),
+//            textAlign = TextAlign.Center,
+//            color = Color.White,
+//            fontFamily = Uncial_Antiqua,
+//            fontSize = 30.sp
+//        )
 
         Button(
             onClick = {  },
