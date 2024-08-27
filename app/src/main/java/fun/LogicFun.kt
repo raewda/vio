@@ -2,7 +2,6 @@ package `fun`
 
 import dataclass.coin
 import dataclass.ranball
-import dataclass.wheeloffortune
 import kotlin.random.Random
 
 fun randomBall(): ranball {
@@ -13,6 +12,3 @@ fun randomCoin(): coin {
     return coin.getById(Random.nextInt(0,coin.Count))
 }
 
-//fun randomFortune() : wheeloffortune{
-//    return wheeloffortune.getById()
-//}

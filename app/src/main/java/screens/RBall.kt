@@ -9,14 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.Sleep
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -38,6 +42,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.violet.R
 import com.example.violet.ui.theme.Uncial_Antiqua
 import `fun`.randomBall
+import kotlinx.coroutines.delay
 
 @Composable
 fun RBall(navController: NavHostController)
@@ -96,11 +101,18 @@ fun RBall(navController: NavHostController)
 
         SimpleTextField()
 
-        //animation
-        Ball()
+
+        var jopa by remember {
+            mutableStateOf(false)
+        }
+        var qqwerty by remember {
+            mutableStateOf(randomBall().anim)
+        }
+
+        Ball(jopa, onAnimEnd = { jopa = false }, qqwerty)
 
         Button(
-            onClick = { },
+            onClick = { jopa = true; qqwerty = randomBall().anim},
             modifier = Modifier
                 .size(150.dp, 60.dp)
                 .align(Alignment.CenterHorizontally),
@@ -119,28 +131,37 @@ fun RBall(navController: NavHostController)
             )
         }
     }
-
 }
 
 
 @Composable
-fun Ball() {
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(randomBall().anim))
+fun Ball(
+    jopa : Boolean,
+    onAnimEnd:()->Unit,
+    animation : Int
+) {
+    LaunchedEffect(Unit) {
+        if (jopa){
+            delay(10000)
+            onAnimEnd()
+        }
+    }
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(animation))
     LottieAnimation(
         composition = composition,
         modifier = Modifier.size(400.dp),
-        isPlaying = true
+        isPlaying = jopa,
+        restartOnPlay = true
     )
 }
 
 @Composable fun SimpleTextField() {
     var text by remember { mutableStateOf (TextFieldValue( "" )) }
-    TextField (
+    OutlinedTextField (
             value = text , onValueChange = { newText ->
         text = newText
             },
         modifier = Modifier,
-        enabled = true,
         readOnly = false,
         placeholder = { Text(
             "question",
@@ -152,7 +173,8 @@ fun Ball() {
             fontFamily = Uncial_Antiqua,
             fontSize = 20.sp,
             color = Color.White
-        )
-
+        ),
+        maxLines = 1,
+        shape = CircleShape
     )
 }
