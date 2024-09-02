@@ -1,6 +1,7 @@
 package screens
 
 import android.widget.Toast
+import androidx.compose.animation.core.estimateAnimationDurationMillis
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -64,7 +65,7 @@ fun RWheelFortune(navController: NavController) {
             .padding(10.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceAround
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Button(
             onClick = { navController.navigate("home") },
@@ -94,7 +95,7 @@ fun RWheelFortune(navController: NavController) {
                 textAlign = TextAlign.Center,
                 color = colorResource(id = R.color.violet),
                 fontFamily = Uncial_Antiqua,
-                fontSize = 50.sp,
+                fontSize = 45.sp,
                 lineHeight = 55.sp
             )
             Text(
@@ -106,7 +107,7 @@ fun RWheelFortune(navController: NavController) {
                 color = Color.White,
                 fontFamily = Uncial_Antiqua,
                 fontSize = 30.sp,
-                lineHeight = 35.sp
+                lineHeight = 25.sp
             )
         }
         val resfortune = remember { mutableStateListOf<TextFieldValue>() }
@@ -160,7 +161,7 @@ fun RWheelFortune(navController: NavController) {
             }
         }
 
-        
+        RWF(linda, onAnimEnd = { linda = false }, animation = R.raw.fortune)
 
         Text(
             text = t.value
@@ -219,9 +220,10 @@ fun RWF(
     val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(animation))
     LottieAnimation(
         composition = composition,
-        modifier = Modifier.size(400.dp),
+        modifier = Modifier
+            .size(200.dp),
         isPlaying = linda,
-        restartOnPlay = false
+        restartOnPlay = false,
     )
 }
 
