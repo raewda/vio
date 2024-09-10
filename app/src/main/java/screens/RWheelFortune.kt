@@ -53,6 +53,7 @@ import com.example.violet.R
 import com.example.violet.ui.theme.Uncial_Antiqua
 import `fun`.randomBall
 import `fun`.randomCoin
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import java.util.Collections
 
@@ -161,7 +162,7 @@ fun RWheelFortune(navController: NavController) {
             }
         }
 
-        RWF(linda, onAnimEnd = { linda = false }, animation = R.raw.fortune)
+        RWF(linda, onAnimEnd = { linda = false}, animation = R.raw.fortune)
 
         Text(
             text = t.value
@@ -178,17 +179,18 @@ fun RWheelFortune(navController: NavController) {
         Button(
             onClick = {
                 if (resfortune.size != 0) {
-                    t.value = resfortune.random().text
                     linda = true
+                    t.value = resfortune.random().text
                 }
                 else {
-                    Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "no options", Toast.LENGTH_SHORT).show()
                 }
             },
+
             modifier = Modifier
                 .size(150.dp, 60.dp)
                 .align(Alignment.CenterHorizontally),
-            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet))
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet)),
 
         ) {
             Text(
@@ -205,25 +207,30 @@ fun RWheelFortune(navController: NavController) {
     }
 }
 
+
 @Composable
 fun RWF(
     linda : Boolean,
     onAnimEnd:()->Unit,
     animation : Int
 ) {
-    LaunchedEffect(Unit) {
-        if (linda){
-            delay(5000)
-            onAnimEnd()
-        }
-    }
+
     val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(animation))
     LottieAnimation(
         composition = composition,
         modifier = Modifier
             .size(200.dp),
         isPlaying = linda,
-        restartOnPlay = false,
+        restartOnPlay = true
     )
+
+    LaunchedEffect(linda) {
+        if (linda){
+            delay(5000)
+            onAnimEnd()
+        }
+    }
+
 }
+
 

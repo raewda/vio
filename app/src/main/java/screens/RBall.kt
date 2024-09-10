@@ -140,9 +140,9 @@ fun Ball(
     onAnimEnd:()->Unit,
     animation : Int
 ) {
-    LaunchedEffect(Unit) {
+    LaunchedEffect(jopa) {
         if (jopa){
-            delay(10000)
+            delay(5000)
             onAnimEnd()
         }
     }
