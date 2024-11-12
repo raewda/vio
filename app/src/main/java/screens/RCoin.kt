@@ -7,14 +7,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,9 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.violet.R
 import com.example.violet.ui.theme.Uncial_Antiqua
-import `fun`.randomBall
-import `fun`.randomCoin
-import java.util.Collections
+import dataclass.randomCoin
 
 @Composable
 fun RCoin(navController: NavController)
@@ -85,18 +83,28 @@ fun RCoin(navController: NavController)
             )
         }
 
-//        Text(text = stringResource(id = randomCoin().rescoin)
-//                .uppercase(),
-//            modifier = Modifier
-//                .fillMaxWidth(),
-//            textAlign = TextAlign.Center,
-//            color = Color.White,
-//            fontFamily = Uncial_Antiqua,
-//            fontSize = 30.sp
-//        )
+        var rc by remember {
+            mutableStateOf(false)
+        }
+        var rcoin by remember {
+            mutableStateOf("")
+        }
+
+        Text(
+            text = rcoin
+                .uppercase(),
+            modifier = Modifier
+                .fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            color = Color.White,
+            fontFamily = Uncial_Antiqua,
+            fontSize = 80.sp,
+            lineHeight = 35.sp
+        )
+
 
         Button(
-            onClick = {  },
+            onClick = { rc = true; rcoin = randomCoin().rescoin.toString()},
             modifier = Modifier
                 .size(150.dp, 60.dp)
                 .align(Alignment.CenterHorizontally),
@@ -114,5 +122,6 @@ fun RCoin(navController: NavController)
                 fontSize = 20.sp
             )
         }
+
     }
 }

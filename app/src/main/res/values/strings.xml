@@ -23,6 +23,9 @@
     <!-- текст подпись колесо фортуны на меню -->
     <string name="wheelfortune_home">Wheel of Fortune</string>
 
+    <!-- текст подпись маические цифры на меню -->
+    <string name="rdigits_home">Magic Digits</string>
+
     <!-- текст на меню -->
     <string name="text_home">your random</string>
 

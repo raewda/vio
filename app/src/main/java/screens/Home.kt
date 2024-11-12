@@ -149,10 +149,11 @@ fun Home(navController: NavHostController) {
                     ),
                     containerColor = Color.Transparent
                 ) {
-                    Image(painter = painterResource(id = R.drawable.fortune), contentDescription = "Fortune")
+                    Image(painter = painterResource(id = R.drawable.digits),
+                        contentDescription = "digits")
                 }
                 Text(
-                    text = stringResource(id = R.string.wheelfortune_home)
+                    text = stringResource(id = R.string.rdigits_home)
                         .uppercase(),
                     modifier = Modifier
                         .padding(top = 15.dp)

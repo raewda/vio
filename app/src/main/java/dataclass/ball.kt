@@ -3,6 +3,7 @@ package dataclass
 import android.view.animation.Animation
 import androidx.core.graphics.drawable.toDrawable
 import com.example.violet.R
+import kotlin.random.Random
 
 open class ranball(
     val id: Int,
@@ -27,4 +28,7 @@ open class ranball(
             return ballda
         }
     }
+}
+fun randomBall(): ranball {
+    return ranball.getById(Random.nextInt(0, ranball.Count))
 }
