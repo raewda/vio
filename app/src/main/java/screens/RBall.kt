@@ -46,7 +46,7 @@ fun RBall(navController: NavHostController)
             .padding(10.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceAround
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Button(
             onClick = { navController.navigate("home") },
