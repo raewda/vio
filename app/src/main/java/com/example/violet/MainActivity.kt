@@ -38,6 +38,7 @@ import com.example.violet.ui.theme.VioletTheme
 import screens.Home
 import screens.RBall
 import screens.RCoin
+import screens.RDigits
 import screens.RWheelFortune
 
 class MainActivity : ComponentActivity(
@@ -66,6 +67,9 @@ class MainActivity : ComponentActivity(
                     }
                     composable("rwheelfortune"){
                         RWheelFortune(navController)
+                    }
+                    composable("rdigits"){
+                        RDigits(navController)
                     }
                 }
             }

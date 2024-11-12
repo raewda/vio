@@ -56,4 +56,11 @@
     <string name="randomWheelFortunetext">The magic wheel of fortune will answer the question)</string>
     <string name="spin">spin</string>
 
+
+    <!-- для рандом чисел -->
+    <string name="randomDigitstitle">Magic Digits</string>
+    <string name="randomDigitstext">Magic digits will choose what you need)</string>
+    <string name="run">run</string>
+
+
 </resources>

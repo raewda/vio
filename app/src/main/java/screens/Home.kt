@@ -81,9 +81,7 @@ fun Home(navController: NavHostController) {
                         bottomStart = 10.dp,
                     ),
                     containerColor = Color.Transparent
-//                    colorResource(id = R.color.violet)
                 ) {
-//                    Icon(Icons.Filled.ArrowBack, "Rcoin")
                     Image(painter = painterResource(id = R.drawable.coin_start), contentDescription = "Rcoin")
                 }
                 Text(
@@ -140,7 +138,7 @@ fun Home(navController: NavHostController) {
                         .padding(horizontal = 20.dp)
                     ) {
                 SmallFloatingActionButton(
-                    onClick = {},
+                    onClick = { navController.navigate("rdigits") },
                     modifier = Modifier
                         .size(120.dp),
                     shape = RoundedCornerShape(
