@@ -90,21 +90,25 @@ fun RCoin(navController: NavController)
             mutableStateOf("")
         }
 
-        Text(
-            text = rcoin
-                .uppercase(),
-            modifier = Modifier
-                .fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            color = Color.White,
-            fontFamily = Uncial_Antiqua,
-            fontSize = 80.sp,
-            lineHeight = 35.sp
-        )
-
+        if (rc) {
+            Text(
+                text = stringResource(id = randomCoin().rescoin)
+                    .uppercase(),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                color = Color.White,
+                fontFamily = Uncial_Antiqua,
+                fontSize = 80.sp,
+                lineHeight = 35.sp
+            )
+        }
 
         Button(
-            onClick = { rc = true; rcoin = randomCoin().rescoin.toString()},
+            onClick = {
+                rc = true;
+                rcoin = randomCoin().rescoin.toString()
+            },
             modifier = Modifier
                 .size(150.dp, 60.dp)
                 .align(Alignment.CenterHorizontally),
