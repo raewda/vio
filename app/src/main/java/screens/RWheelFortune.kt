@@ -88,7 +88,7 @@ fun RWheelFortune(navController: NavController) {
                 textAlign = TextAlign.Center,
                 color = colorResource(id = R.color.violet),
                 fontFamily = Uncial_Antiqua,
-                fontSize = 45.sp,
+                fontSize = 35.sp,
                 lineHeight = 55.sp
             )
             Text(
@@ -99,7 +99,7 @@ fun RWheelFortune(navController: NavController) {
                 textAlign = TextAlign.Center,
                 color = Color.White,
                 fontFamily = Uncial_Antiqua,
-                fontSize = 30.sp,
+                fontSize = 20.sp,
                 lineHeight = 25.sp
             )
         }
@@ -125,7 +125,7 @@ fun RWheelFortune(navController: NavController) {
             }
             LazyColumn(
                 modifier = Modifier
-                    .fillMaxHeight(0.4f)
+                    .fillMaxHeight(0.3f)
             ) {
                 items(resfortune.reversed()) { el ->
                     OutlinedTextField(

@@ -57,7 +57,7 @@ fun Home(navController: NavHostController) {
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
             color = Color.White,
-            fontSize = 50.sp,
+            fontSize = 35.sp,
             fontFamily = Uncial_Antiqua,
             lineHeight = 55.sp
         )
@@ -67,7 +67,7 @@ fun Home(navController: NavHostController) {
         ) {
             Column(
                 modifier = Modifier
-                    .padding(top = 60.dp, bottom = 10.dp)
+                    .padding(top = 30.dp)
                     .padding(horizontal = 20.dp)
             ) {
                 SmallFloatingActionButton(
@@ -99,7 +99,7 @@ fun Home(navController: NavHostController) {
 
             Column(
                 modifier = Modifier
-                    .padding(top = 60.dp, bottom = 10.dp)
+                    .padding(top = 30.dp)
                     .padding(horizontal = 20.dp)
             ) {
                 SmallFloatingActionButton(
@@ -134,7 +134,6 @@ fun Home(navController: NavHostController) {
         ) {
             Column(
                     modifier = Modifier
-                        .padding(bottom = 20.dp)
                         .padding(horizontal = 20.dp)
                     ) {
                 SmallFloatingActionButton(
@@ -168,7 +167,6 @@ fun Home(navController: NavHostController) {
 
             Column(
                 modifier = Modifier
-                    .padding(bottom = 20.dp)
                     .padding(horizontal = 20.dp)
             ) {
                 SmallFloatingActionButton(
@@ -202,7 +200,7 @@ fun Home(navController: NavHostController) {
         Button(
             onClick = { navController.navigate("knopkastart") },
             modifier = Modifier
-                .size(200.dp, 80.dp),
+                .size(150.dp, 60.dp),
             colors = ButtonDefaults.buttonColors(colorResource(id = R.color.violet))
 
         ) {
@@ -214,7 +212,7 @@ fun Home(navController: NavHostController) {
                 textAlign = TextAlign.Center,
                 color = Color.White,
                 fontFamily = Uncial_Antiqua,
-                fontSize = 40.sp
+                fontSize = 25.sp
             )
         }
     }

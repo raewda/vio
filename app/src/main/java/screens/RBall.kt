@@ -46,7 +46,7 @@ fun RBall(navController: NavHostController)
             .padding(10.dp)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.SpaceAround
     ) {
         Button(
             onClick = { navController.navigate("home") },
@@ -67,7 +67,10 @@ fun RBall(navController: NavHostController)
                 fontSize = 15.sp
             )
         }
-        Column {
+        Column(
+            modifier = Modifier
+                .padding(bottom = 15.dp)
+        ) {
             Text(
                 text = stringResource(id = R.string.randomBalltitle)
                     .uppercase(),
@@ -76,8 +79,8 @@ fun RBall(navController: NavHostController)
                 textAlign = TextAlign.Center,
                 color = colorResource(id = R.color.violet),
                 fontFamily = Uncial_Antiqua,
-                fontSize = 50.sp,
-                lineHeight = 55.sp
+                fontSize = 35.sp,
+                lineHeight = 45.sp
             )
             Text(
                 text = stringResource(id = R.string.randomBalltext)
@@ -87,8 +90,8 @@ fun RBall(navController: NavHostController)
                 textAlign = TextAlign.Center,
                 color = Color.White,
                 fontFamily = Uncial_Antiqua,
-                fontSize = 30.sp,
-                lineHeight = 35.sp
+                fontSize = 20.sp,
+                lineHeight = 25.sp
             )
         }
 
@@ -142,7 +145,7 @@ fun Ball(
     val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(animation))
     LottieAnimation(
         composition = composition,
-        modifier = Modifier.size(400.dp),
+        modifier = Modifier.size(350.dp),
         isPlaying = jopa,
         restartOnPlay = true
     )
