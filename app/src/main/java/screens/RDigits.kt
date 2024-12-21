@@ -94,7 +94,8 @@ fun RDigits(navController: NavController)
         ) {
             OutlinedTextField(
                 value = from.value,
-                onValueChange = {newText -> from.value = newText},
+                onValueChange = {
+                    newText -> from.value = newText},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier
                     .size(100.dp, 60.dp)
@@ -109,7 +110,8 @@ fun RDigits(navController: NavController)
 
             OutlinedTextField(
                 value = to.value,
-                onValueChange = {newText -> to.value = newText},
+                onValueChange = {
+                    newText -> to.value = newText},
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier
                     .size(100.dp, 60.dp)
@@ -138,9 +140,15 @@ fun RDigits(navController: NavController)
             lineHeight = 35.sp
         )
 
-        val fromValue = from.value.toInt()
-        val toValue = to.value.toInt()
+        var fromValue : Int = 0
+        var toValue : Int = 1
 
+        if (from.value != ""){
+            fromValue = from.value.toInt()
+        }
+        if (to.value != ""){
+            toValue = to.value.toInt()
+        }
 
         Button(
             onClick = {
